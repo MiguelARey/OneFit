@@ -1,7 +1,6 @@
 <template>
   <div>
-    <MiguelHi/>
-    <Tutorial/>
+    
   </div>
 </template>
 
