@@ -40,9 +40,11 @@ export default {
         this.$router.push({
           name: "result-mbti",
           params: {
-            mbti: `${result.e ? "e" : "i"}${result.s ? "s" : "n"}${
-              result.f ? "f" : "t"
-            }${result.p ? "p" : "j"}`,
+            mbti: `${result.e > result.i ? "e" : "i"}${
+              result.s > result.n ? "s" : "n"
+            }${result.f > result.t ? "f" : "t"}${
+              result.p > result.j ? "p" : "j"
+            }`,
           },
         });
       }
