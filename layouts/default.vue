@@ -22,7 +22,7 @@
                 <div>
                     <section>
                         <div class="links">
-                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/892/892930.png" alt="logo-icon"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/10794/10794710.png" alt="logo-icon"></a>
                             <section class="href">
                                 <ul>
                                     <li>About</li>

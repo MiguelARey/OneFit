@@ -19,14 +19,12 @@ html{
 
 // footer 
 
-.contact{
-    background-color: #07CC59;
-}
 .home-page{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: $main-blue;
+    padding-top: 10vh;
 }
 footer{
     padding-top: 5vh;
@@ -48,11 +46,12 @@ footer section{
 footer article{
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid grey;
+    border-top: 1px solid $blue;
     color: lightgrey;
     padding: 5vh 0;
     > p {
         padding: 2vh 4vh;
+        color: $dark-blue;
     }
 }
 
@@ -64,8 +63,8 @@ footer article{
 }
 
 .links img{
-    width: 8vh;
-    height: 8vh;
+    width: 12vh;
+    height: 12vh;
 }
 
 .href{
@@ -73,14 +72,14 @@ footer article{
     justify-content: space-between;
     li{
         list-style: none;
-        color: white;
+        color: $dark-blue;
         padding: 0.40rem;
     }
     a{
         text-decoration: none;
-        color: lightgrey;
+        color: $blue;
         &:hover{
-            color:#07CC59;
+            color:$dark-blue;
             transition: .4s;
         }
     }
@@ -124,10 +123,11 @@ footer article{
     padding: 2vh 4vh;
     font-weight: 600;
     position: relative;
+    color: $dark-blue;
     &:hover{
-        background-color: #07CC59;
+        background-color: $dark-blue;
         cursor: pointer;
-        color: white;
+        color: $pink;
     }
 }
 
@@ -136,7 +136,7 @@ footer article{
     display: none;
     position: absolute;
     flex-direction: column;
-    background-color: #07CC59;
+    background-color: $dark-blue;
     bottom: 100%;
     width: 100%;
     left: 0;
@@ -146,7 +146,7 @@ footer article{
         list-style: none;
         &:hover{
             cursor: pointer;
-            background-color: #273746;
+            background-color: $main-blue;
         }
     }
 }
@@ -178,34 +178,35 @@ footer article{
     }
     h1{
         font-size: 2.3rem;
-        background: linear-gradient(90deg,rgb(183, 75, 101)
-        ,$pink);
+        background: linear-gradient(90deg,$pink
+        ,rgb(183, 75, 101));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         font-family: "Druk-Wide",sans-serif;
     }
     p{
-        color: gainsboro;
+        color: $pink;
         font-size: 1.1rem;
     }
     input[type=submit]{
         color: #1B1919;
-        background-color: whitesmoke;
+        background-color: gainsboro;
         padding: 2vh 3vh;
         font-weight: 600;
-        border: 1px solid whitesmoke;
+        border: 1px solid gainsboro;
         border-radius: 8px;
         font-size: 1rem;
         &:hover{
-            background-color: gainsboro;
+            background-color: $pink;
             cursor: pointer;
+            transition: .4s;
         }
     }
     input[type=email]{
         width: 50vh;
         padding: 1vh 2vh;
-        background-color: rgb(64, 54, 54);
+        background-color: rgb(53, 53, 70);
         border: 2px solid grey;
         border-radius: 8px;
         color: whitesmoke;
