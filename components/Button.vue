@@ -19,5 +19,12 @@ export default {
 };
 </script>
 <style>
+<<<<<<< HEAD
 
+=======
+a {
+  color: blue;
+  cursor: pointer;
+}
+>>>>>>> c9db3a3c105b72f10148566966771abf83242e62
 </style>
