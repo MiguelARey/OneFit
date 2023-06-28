@@ -20,6 +20,7 @@ export default {
 </script>
 <style>
 a {
+  width: 40%;
   position: relative;
   display: inline-block;
   cursor: pointer;
