@@ -18,4 +18,9 @@ export default {
   },
 };
 </script>
-<style lang="scss"></style>
+<style>
+a {
+  color: blue;
+  cursor: pointer;
+}
+</style>
