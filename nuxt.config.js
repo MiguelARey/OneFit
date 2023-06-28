@@ -23,7 +23,7 @@ export default {
     ],
   },
 
-  css: [],
+  css: ["~/assets/css/style.css"],
 
   plugins: [],
 
