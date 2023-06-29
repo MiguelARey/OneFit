@@ -1,10 +1,5 @@
 <template>
-    <div>
-        <div class="header">
-            HEADER
-        </div>
-        <Nuxt />
-        <div class="home-page">
+    <div class="home-page">
             <div class="newsletter">
                 <section>
                     <h1>KEEP UPDATED</h1>
@@ -76,7 +71,6 @@
                 </div>
             </footer>
         </div>
-    </div>
 </template>
 
 <style>
@@ -325,4 +319,3 @@ footer article > p {
     padding: 4vh 0;
 }
 </style>
-
