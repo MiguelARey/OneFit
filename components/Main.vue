@@ -1,18 +1,45 @@
 <template>
     <div>
         <div class="cont">
-
+            START MBTI
         </div>
         <div class="main-content">
-            MAIN CONTENT
+            <Gallery :characters="this.characters"/>
         </div>
     </div>  
 </template>
 
+<script>
+    import Gallery from './Gallery.vue';
+    export default{
+        data(){
+            return{
+                charApi: "http://localhost:80/onefit_server/rest/api/V1/char.php",
+                characters: []
+            }
+        },
+        components:{
+            Gallery
+        },
+        methods:{
+            async getCharacters(){
+                try{
+                    let response = await fetch(this.charApi);
+                    this.characters = await response.json();
+                }catch(error){
+                    console.log(error)
+                }
+            }
+        },
+        created(){
+            this.getCharacters();
+        }
+    }
+</script>
+
 
 <style>
     .main-content{
-        height: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -20,7 +47,7 @@
     }
 
     .cont{
-        height: 500px;
+        height: 400px;
         display: flex;
         justify-content: center;
         align-items: center;

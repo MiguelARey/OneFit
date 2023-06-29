@@ -102,7 +102,7 @@ html{
     flex-direction: column;
     align-items: center;
     background-color: #4FC0D0;
-    padding-top: 4vh;
+    padding-top: 10vh;
 }
 footer{
     padding-top: 5vh;
