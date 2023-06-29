@@ -1,10 +1,5 @@
 <template>
-    <div>
-        <div class="header">
-            HEADER
-        </div>
-        <Nuxt />
-        <div class="home-page">
+    <div class="home-page">
             <div class="newsletter">
                 <section>
                     <h1>KEEP UPDATED</h1>
@@ -22,21 +17,16 @@
                 <div>
                     <section>
                         <div class="links">
-                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/10794/10794710.png" alt="logo-icon"></a>
                             <section class="href">
                                 <ul>
                                     <li>About</li>
                                     <li><a href="#">Our Story</a></li>
                                     <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Brand Guidelines</a></li>
-                                    <li><a href="#">Contact Us</a></li>
                                 </ul>
                                 <ul>
                                     <li>Shop</li>
                                     <li><a href="#">Help</a></li>
                                     <li><a href="#">Downloads</a></li>
-                                    <li><a href="#">Shipping</a></li>
-                                    <li><a href="#">Return</a></li>
                                 </ul>
                                 <ul>
                                     <li>Terms and Conditions</li>
@@ -76,7 +66,6 @@
                 </div>
             </footer>
         </div>
-    </div>
 </template>
 
 <style>
@@ -113,7 +102,7 @@ html{
     flex-direction: column;
     align-items: center;
     background-color: #4FC0D0;
-    padding-top: 10vh;
+    padding-top: 4vh;
 }
 footer{
     padding-top: 5vh;
@@ -130,7 +119,7 @@ footer > div{
 footer section{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 4vh;
+    padding-bottom: 2vh;
 }
 
 footer article{
@@ -138,7 +127,6 @@ footer article{
     justify-content: space-between;
     border-top: 1px solid #1B6B93;
     color: lightgrey;
-    padding: 5vh 0;
 }
 
 footer article > p {
@@ -203,7 +191,6 @@ footer article > p {
     display: flex;
     flex-wrap: wrap;
     gap: 2vh;
-    padding-top: 14vh; 
 }
 
 .media >a{
@@ -251,9 +238,6 @@ footer article > p {
     background-color: #4FC0D0;
 }
 
-.container{
-    height: 100px;
-}
 
 .newsletter >form{
     padding: 2vh 5vh 2vh 0;
@@ -270,7 +254,7 @@ footer article > p {
 }
 
 .newsletter h1{
-    font-size: 2.3rem;
+    font-size: 2rem;
     background: linear-gradient(90deg,#FFD0D0
     ,rgb(183, 75, 101));
     -webkit-background-clip: text;
@@ -322,7 +306,6 @@ footer article > p {
     border: 2px solid #1B6B93;
     border-radius: 10px;
     justify-content: space-between;
-    padding: 4vh 0;
+    padding: 1vh 0;
 }
 </style>
-
