@@ -72,7 +72,7 @@ header{
     z-index: 2;
     width: 100%;
     height: 100%;
-    opacity: .3;
+    opacity: .2;
 }
 
 .header-cont{
