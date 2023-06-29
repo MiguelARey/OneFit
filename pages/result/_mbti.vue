@@ -1,5 +1,6 @@
 <template>
-  <main class="resultMain">
+  <main v-if="isLoading" class="loading-spinner"></main>
+  <main v-else class="resultMain">
     <section class="resultSection">
       <article class="resultMbti">
         <article>
@@ -10,9 +11,17 @@
       </article>
       <figure class="resultFigure">
         <article class="resultImgBox">
-          <img class="hoverAction1" :src="result[mbti].img1" :alt="result[mbti].title1" />
+          <img
+            class="hoverAction1"
+            :src="result[mbti].img1"
+            :alt="result[mbti].title1"
+          />
           <h2 class="hoverAction1">{{ result[mbti].title1 }}</h2>
-          <img class="hoverAction2" :src="result[mbti].img2" :alt="result[mbti].title2" />
+          <img
+            class="hoverAction2"
+            :src="result[mbti].img2"
+            :alt="result[mbti].title2"
+          />
           <h2 class="hoverAction2">{{ result[mbti].title2 }}</h2>
         </article>
         <p>{{ result[mbti].description }}</p>
@@ -20,13 +29,13 @@
       <section class="matchSection">
         <figure class="match">
           <h2>Perfect Match</h2>
-          <img :src="result[mbti].matchImg1" :alt="result[mbti].match1" >
+          <img :src="result[mbti].matchImg1" :alt="result[mbti].match1" />
           <h3>{{ result[mbti].match1 }}</h3>
           <p>{{ result[mbti].matchtitle1 }}</p>
         </figure>
         <figure class="match">
           <h2>Worst Match</h2>
-          <img :src="result[mbti].matchImg2" :alt="result[mbti].match2" >
+          <img :src="result[mbti].matchImg2" :alt="result[mbti].match2" />
           <h3>{{ result[mbti].match2 }}</h3>
           <p>{{ result[mbti].matchtitle2 }}</p>
         </figure>
@@ -42,6 +51,7 @@
 export default {
   data() {
     return {
+      isLoading: true,
       mbti: null,
       result: {
         // intj: {
@@ -55,8 +65,10 @@ export default {
           title1: "Brook",
           title2: "Koala",
           subMbti: "Consul",
-          summary: "Extraordinarily caring, social and popular people, always eager to help",
-          description: "Warmhearted, conscientious, and cooperative. Want harmony in their environment, work with determination to establish it. Like to work with others to complete tasks accurately and on time. Loyal, follow through even in small matters. Notice what others need in their day-by-day lives and try to provide it. Want to be appreciated for who they are and for what they contribute.",
+          summary:
+            "Extraordinarily caring, social and popular people, always eager to help",
+          description:
+            "Warmhearted, conscientious, and cooperative. Want harmony in their environment, work with determination to establish it. Like to work with others to complete tasks accurately and on time. Loyal, follow through even in small matters. Notice what others need in their day-by-day lives and try to provide it. Want to be appreciated for who they are and for what they contribute.",
           match1: "isfp",
           match2: "istp",
           matchImg1: "/i/isfp.png",
@@ -75,28 +87,75 @@ export default {
     if (this.result[this.$route.params.mbti] === undefined) {
       this.$router.push({ name: "index" });
     }
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
   },
   methods: {
     resetPage() {
       this.$store.dispatch("clickResetButton");
       this.$router.push({ name: "index" });
     },
-    copyLink(){
-
-    },
+    copyLink() {},
   },
 };
 </script>
 <style>
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 50vh;
+  font-size: 24px;
+  color: #333;
+  position: relative;
+  background-image: url("../../static/luffyFace.jpeg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 10vw;
+  margin-top: 10vh;
+}
+
+.loading-spinner::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 4px solid #333;
+  border-top-color: transparent;
+  animation: loading-spinner-animation 1s linear infinite;
+  position: absolute;
+  bottom: -50px;
+  right: 47%;
+  transform: translateX(50%);
+}
+
+@keyframes loading-spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .resultMain {
   padding: 2%;
   display: flex;
   flex-direction: column;
   row-gap: 2vh;
-  /* background-image: url("../../static/resultBg.jpg");
+  background-image: url("../../static/resultpage2.jpeg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
+  background-attachment: fixed;
   /* opacity: 0.5; */
 }
 .resultSection {
@@ -104,7 +163,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 11% 89% 13% 87% / 96% 6% 94% 4% ;
+  border-radius: 11% 89% 13% 87% / 96% 6% 94% 4%;
   padding: 4% 5%;
   width: 45vw;
   height: 113vh;
@@ -132,7 +191,7 @@ export default {
   width: 30%;
   color: white;
   -webkit-text-stroke-width: 3px;
-	-webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: black;
 }
 .resultMbti h3 {
   font-size: 24px;
@@ -157,7 +216,7 @@ export default {
   width: 100%;
   height: 30vh; */
 }
-.resultImgBox { 
+.resultImgBox {
   position: relative;
   top: 20px;
   left: -20px;
@@ -181,11 +240,11 @@ export default {
   position: absolute;
   width: 27%;
   right: 365px;
-  line-height: 30px; 
+  line-height: 30px;
   font-weight: 600;
   /* padding: 2%; */
   top: 274px;
-  /* position: absolute; */ 
+  /* position: absolute; */
   /* right: 18px; */
   /* width: 50%; */
 }
@@ -206,19 +265,19 @@ export default {
 .hoverAction2 {
   display: none;
 }
-.resultImgBox:hover .hoverAction1{
+.resultImgBox:hover .hoverAction1 {
   display: none;
 }
-.resultImgBox:hover .hoverAction2{
+.resultImgBox:hover .hoverAction2 {
   display: block;
 }
 .hoverImg {
   /* display: none; */
 }
-.resultImgBox:hover .hoverAction1{
+.resultImgBox:hover .hoverAction1 {
   /* display: none; */
 }
-.resultImgBox:hover .hoverAction2{
+.resultImgBox:hover .hoverAction2 {
   /* display: block; */
 }
 /* .resultImgBox:hover .resultImgBox2{
@@ -263,5 +322,4 @@ export default {
   display: flex;
   column-gap: 4vw;
 }
-
 </style>

@@ -2,7 +2,6 @@ export default {
   ssr: false,
 
   target: "static",
-
   head: {
     title: "OneFit",
     htmlAttrs: {
@@ -15,7 +14,12 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-    link: [{ rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" }],
+    link: [
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css",
+      },
+    ],
     link: [
       {
         rel: "stylesheet",
