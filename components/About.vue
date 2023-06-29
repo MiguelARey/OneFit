@@ -84,7 +84,7 @@
     .about-container{
         display: flex;
     }
-    
+
 
 
 </style>
