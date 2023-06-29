@@ -4,30 +4,30 @@
 }
 
 main {
-  padding: 50px 0 100px;
-  width: 100%;
-  max-width: 360px;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100%; */
   text-align: center;
 }
 
 h1 {
   font-size: 1.8em;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
 }
 
 h2 {
   font-size: 1.2em;
-  color: #b9b8b7;
-  margin-bottom: 25px;
+  /* color: #b9b8b7; */
+  /* margin-bottom: 25px; */
 }
 
 img {
   width: inherit;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 p {
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   text-align: left;
 }
