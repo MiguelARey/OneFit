@@ -71,7 +71,7 @@ export default {
     clickButton(item) {
       this.$store.dispatch("clickButton", item.value);
       //when the page is last
-      if (this.page === this.$store.state.questions.length) {
+      if (this.page === this.$store.state.questions.length + 1) {
         const result = this.$store.state.result;
         this.$router.push({
           name: "result-mbti",
@@ -141,10 +141,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
-  row-gap: 3vh;
+  row-gap: 5vh;
   font-size: 20px;
   background-color: rgba(233, 238, 240, 0.6);
 }
