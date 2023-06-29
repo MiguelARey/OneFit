@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -25,7 +29,6 @@ h2 {
 
 img {
   width: inherit;
-  margin-bottom: 30px;
 }
 
 p {

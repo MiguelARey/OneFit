@@ -1,14 +1,17 @@
 <template>
-  <!-- intro page -->
-  <main v-if="page === 0">
-    <h1>One piece MBTI</h1>
-    <h2>who has a same MBTI in One piece?</h2>
-    <Button text="Start test" :clickEvent="startEvent" />
-  </main>
-  <!-- quiz page -->
-  <main v-else-if="page < 13">
-    <Question />
-  </main>
+  <div>
+    <HeaderPage />
+    <!-- intro page -->
+    <main v-if="page === 0">
+      <h1>One piece MBTI</h1>
+      <h2>who has a same MBTI in One piece?</h2>
+      <Button text="Start test" :clickEvent="startEvent" />
+    </main>
+    <!-- quiz page -->
+    <main v-else-if="page < 13">
+      <Question />
+    </main>
+  </div>
 </template>
 
 <script>

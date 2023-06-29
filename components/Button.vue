@@ -1,5 +1,7 @@
 <template>
-  <a :class="[styleType]" @click.prevent="clickEvent">{{ text }}</a>
+  <a id="buttonStyle" :class="[styleType]" @click.prevent="clickEvent">{{
+    text
+  }}</a>
 </template>
 <script>
 export default {
@@ -19,7 +21,7 @@ export default {
 };
 </script>
 <style>
-a {
+#buttonStyle {
   width: 40%;
   position: relative;
   display: inline-block;
@@ -41,7 +43,7 @@ a {
   transition: transform 0.2s ease-out, background 0.2s ease-out;
 }
 
-a::before {
+#buttonStyle::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -57,12 +59,12 @@ a::before {
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
-a:hover {
+#buttonStyle:hover {
   background: linear-gradient(45deg, #ffe9e9, #ffd0d0);
   transform: translateY(0.25em);
 }
 
-a.blue {
+#buttonStyle.blue {
   display: block;
   margin-bottom: 29px;
   background: linear-gradient(45deg, #c6edf3, #a3eaf3);
@@ -70,12 +72,12 @@ a.blue {
   border-color: #4fc0d0;
 }
 
-a.blue::before {
+#buttonStyle.blue::before {
   /* box-shadow: 0 0 0 2px #8599b1, 0 0.75em 0 0 #e2efff; */
   background: linear-gradient(45deg, #4fc0d0, #a3eaf3);
 }
 
-a.blue:hover {
+#buttonStyle.blue:hover {
   background: linear-gradient(45deg, #a3eaf3, #4fc0d0);
   transform: translateY(0.25em);
 }
