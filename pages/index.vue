@@ -6,7 +6,7 @@
     <Button text="Start test" :clickEvent="startEvent" />
   </main>
   <!-- quiz page -->
-  <main v-else-if="page < 12">
+  <main v-else-if="page < 13">
     <Question />
   </main>
 </template>

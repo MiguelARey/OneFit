@@ -1,5 +1,39 @@
 <template>
-  <div class="question">
+  <div v-if="page < 5" class="question-morning">
+    <div class="quest">
+      <Progress />
+      <h1>{{ question }}</h1>
+      <Button
+        v-for="(item, index) in answers"
+        styleType="blue"
+        :key="index"
+        :text="item.text"
+        :clickEvent="
+          () => {
+            clickButton(item);
+          }
+        "
+      />
+    </div>
+  </div>
+  <div v-else-if="page < 9" class="question-middle">
+    <div class="quest">
+      <Progress />
+      <h1>{{ question }}</h1>
+      <Button
+        v-for="(item, index) in answers"
+        styleType="blue"
+        :key="index"
+        :text="item.text"
+        :clickEvent="
+          () => {
+            clickButton(item);
+          }
+        "
+      />
+    </div>
+  </div>
+  <div v-else-if="page < 13" class="question-night">
     <div class="quest">
       <Progress />
       <h1>{{ question }}</h1>
@@ -42,10 +76,10 @@ export default {
         this.$router.push({
           name: "result-mbti",
           params: {
-            mbti: `${result.e > result.i ? "e" : "i"}${
-              result.s > result.n ? "s" : "n"
-            }${result.f > result.t ? "f" : "t"}${
-              result.p > result.j ? "p" : "j"
+            mbti: `${Number(result.e) > Number(result.i) ? "e" : "i"}${
+              Number(result.s) > Number(result.n) ? "s" : "n"
+            }${Number(result.f) > Number(result.t) ? "f" : "t"}${
+              Number(result.p) > Number(result.j) ? "p" : "j"
             }`,
           },
         });
@@ -55,14 +89,46 @@ export default {
 };
 </script>
 <style>
-.question {
+.question-morning {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-image: url("static/ship.jpeg");
+  background-image: url("static/questionImg/ship.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  row-gap: 3vh;
+  color: rgb(23, 75, 96);
+  font-size: 40px;
+  font-weight: 800;
+}
+.question-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("static/questionImg/middle.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  row-gap: 3vh;
+  color: rgb(23, 75, 96);
+  font-size: 40px;
+  font-weight: 800;
+}
+.question-night {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("static/questionImg/dark.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
