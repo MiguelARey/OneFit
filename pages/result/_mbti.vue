@@ -1,110 +1,107 @@
 <template>
-  <main v-if="isLoading" class="loading-spinner"></main>
+  <main v-if="isLoading" class="loading-spinner">
+    <h3>Analyzing...</h3>
+    <p></p>
+  </main>
   <main v-else class="resultMain">
     <section class="resultSection">
       <article class="resultMbti">
         <article>
-          <h1>{{ this.$route.params.mbti }}</h1>
-          <h3>{{ result[mbti].subMbti }}</h3>
+          <h1>{{ result.type }}</h1>
+          <h3>{{ result.subMbti }}</h3>
         </article>
-        <p>{{ result[mbti].summary }}</p>
+        <p>{{ result.summary }}</p>
       </article>
       <figure class="resultFigure">
         <article class="resultImgBox">
           <img
             class="hoverAction1"
-            :src="result[mbti].img1"
-            :alt="result[mbti].title1"
+            :src="result.img1"
+            :alt="result.title1"
           />
-          <h2 class="hoverAction1">{{ result[mbti].title1 }}</h2>
+          <h2 class="hoverAction1">{{ result.title1 }}</h2>
           <img
             class="hoverAction2"
-            :src="result[mbti].img2"
-            :alt="result[mbti].title2"
+            :src="result.img2"
+            :alt="result.title2"
           />
-          <h2 class="hoverAction2">{{ result[mbti].title2 }}</h2>
+          <h2 class="hoverAction2">{{ result.title2 }}</h2>
         </article>
-        <p>{{ result[mbti].description }}</p>
+        <p>{{ result.description }}</p>
       </figure>
       <section class="matchSection">
         <figure class="match">
           <h2>Perfect Match</h2>
-          <img :src="result[mbti].matchImg1" :alt="result[mbti].match1" />
-          <h3>{{ result[mbti].match1 }}</h3>
-          <p>{{ result[mbti].matchtitle1 }}</p>
+          <img :src="result.matchImg1" :alt="result.match1" />
+          <h3>{{ result.match1 }}</h3>
+          <p>{{ result.matchtitle1 }}</p>
         </figure>
         <figure class="match">
           <h2>Worst Match</h2>
-          <img :src="result[mbti].matchImg2" :alt="result[mbti].match2" />
-          <h3>{{ result[mbti].match2 }}</h3>
-          <p>{{ result[mbti].matchtitle2 }}</p>
+          <img :src="result.matchImg2" :alt="result.match2" />
+          <h3>{{ result.match2 }}</h3>
+          <p>{{ result.matchtitle2 }}</p>
         </figure>
       </section>
     </section>
     <section class="resultBtnSection">
-      <Button text="Try again" :clickEvent="resetPage" />
-      <Button text="Share the link" :clickEvent="copyLink" />
+      <article>
+        <Button text="Try again" :clickEvent="resetPage" />
+        <Button text="Share the link" />
+      </article>
+      <Button text="All MBTI" styleType="blue"/>
     </section>
   </main>
 </template>
+
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       isLoading: true,
-      mbti: null,
       result: {
-        // intj: {
-        //   img: "/intj.png",
-        //   title: "",
-        //   description: ``,
-        // },
-        esfj: {
-          type: "esfj",
-          img1: "/e/esfj.jpeg",
-          img2: "/e/esfj1.png",
-          title1: "Brook",
-          title2: "Koala",
-          subMbti: "Consul",
-          summary:
-            "Extraordinarily caring, social and popular people, always eager to help",
-          description:
-            "Warmhearted, conscientious, and cooperative. Want harmony in their environment, work with determination to establish it. Like to work with others to complete tasks accurately and on time. Loyal, follow through even in small matters. Notice what others need in their day-by-day lives and try to provide it. Want to be appreciated for who they are and for what they contribute.",
-          match1: "isfp",
-          match2: "istp",
-          matchImg1: "/i/isfp.png",
-          matchImg2: "/i/istp.jpeg",
-          matchtitle1: "Perona",
-          matchtitle2: "Roronoa Zoro",
-        },
+        type: "",
+        img1: "",
+        img2: "",
+        title1: "",
+        title2: "",
+        subMbti: "",
+        summary: "",
+        description: "",
+        match1: "",
+        match2: "",
+        matchImg1: "",
+        matchImg2: "",
+        matchtitle1: "",
+        matchtitle2: "",
       },
     };
   },
-  created() {
-    // this.mbti = this.$route.params.mbti;
-    this.mbti = "esfj";
-
-    // exception
-    if (this.result[this.$route.params.mbti] === undefined) {
+  async created() {
+    try {
+      const { data } = await axios.get(`http://localhost:8080/result/${this.$route.params.mbti}`);
+      this.results = { ...data };
+      // console.log(this.results);
+      this.result  = this.results.result[0];
+      // console.log(this.result.type);
+    } catch (error) {
+      console.error(error);
       this.$router.push({ name: "index" });
     }
     setTimeout(() => {
       this.isLoading = false;
-    }, 5000);
-  },
-  mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
+    }, 3000);
   },
   methods: {
     resetPage() {
       this.$store.dispatch("clickResetButton");
       this.$router.push({ name: "index" });
-    },
-    copyLink() {},
-  },
-};
+
+    }
+  }
+}
 </script>
 <style>
 .loading-spinner {
@@ -116,7 +113,7 @@ export default {
   font-size: 24px;
   color: #333;
   position: relative;
-  background-image: url("../../static/luffyFace.jpeg");
+  background-image: url("../../static/loading.png");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: contain;
@@ -124,7 +121,7 @@ export default {
   margin-top: 10vh;
 }
 
-.loading-spinner::after {
+.loading-spinner > p::after {
   content: "";
   width: 20px;
   height: 20px;
@@ -133,8 +130,8 @@ export default {
   border-top-color: transparent;
   animation: loading-spinner-animation 1s linear infinite;
   position: absolute;
-  bottom: -50px;
-  right: 47%;
+  bottom: -75px;
+  right: 40%;
   transform: translateX(50%);
 }
 
@@ -147,6 +144,9 @@ export default {
   }
 }
 
+.loading-spinner > h3 {
+  padding-top: 45%;
+}
 .resultMain {
   padding: 2%;
   display: flex;
@@ -286,7 +286,7 @@ export default {
 } */
 .matchSection {
   display: flex;
-  padding-top: 17%;
+  padding-top: 20%;
   justify-content: space-around;
 }
 .match:first-child {
@@ -321,6 +321,15 @@ export default {
 .resultBtnSection {
   padding: 3% 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4vh;
+  width: 50%;
+}
+.resultBtnSection > article {
+  display: flex;
+  flex-direction: row;
   column-gap: 4vw;
+  width: 100%;
 }
 </style>
