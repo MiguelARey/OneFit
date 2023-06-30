@@ -1,6 +1,6 @@
 <template>
     <div class="gallery">
-        <figure v-for="char in characters" :key="char.name">
+        <figure v-for="char in characters" :key="char.name" @click="openModal()">
             <img :src="char.picture" :alt="char.id">
             <figcaption>
                 <h2>{{ char.name }}</h2>
@@ -8,6 +8,9 @@
             </figcaption>
             <h3>{{ char.mbti }}</h3>
         </figure>
+        <div class="modal">
+            
+        </div>
     </div>
 </template>
 
@@ -22,7 +25,7 @@
 <style>
     .gallery > figure{
         width: 27%;
-        background-color: blueviolet;
+        background-color: gainsboro;
         display: flex;
         align-items: center;
         padding-right: 2vh;
@@ -37,9 +40,11 @@
     }
 
     .gallery img{
-        width: 15vh;
-        height: 15vh;
+        width: 18vh;
+        height: 18vh;
         background-color: lightcoral;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 
     .gallery{

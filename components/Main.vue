@@ -10,16 +10,15 @@
 </template>
 
 <script>
-    import Gallery from './Gallery.vue';
     export default{
         data(){
             return{
                 charApi: "http://localhost:80/onefit_server/rest/api/V1/char.php",
-                characters: []
+                characters: [],
+                counter: 0,
+                pageOne:[],
+                pagesCount: 0
             }
-        },
-        components:{
-            Gallery
         },
         methods:{
             async getCharacters(){
