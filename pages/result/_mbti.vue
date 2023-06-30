@@ -60,6 +60,7 @@ export default {
         //   description: ``,
         // },
         esfj: {
+          type: "esfj",
           img1: "/e/esfj.jpeg",
           img2: "/e/esfj1.png",
           title1: "Brook",
@@ -89,7 +90,7 @@ export default {
     }
     setTimeout(() => {
       this.isLoading = false;
-    }, 2000);
+    }, 5000);
   },
   mounted() {
     setTimeout(() => {
