@@ -7,7 +7,7 @@ export const state = {
       q: "What is your favorite character type in One Piece?",
       a: [
         {
-          text: "People whow have a free spirit and enjoy adventure",
+          text: "People who have a free spirit and enjoy adventure",
           value: "e",
         },
         {
