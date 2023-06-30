@@ -45,8 +45,11 @@
       </section>
     </section>
     <section class="resultBtnSection">
-      <Button text="Try again" :clickEvent="resetPage" />
-      <Button text="Share the link" />
+      <article>
+        <Button text="Try again" :clickEvent="resetPage" />
+        <Button text="Share the link" />
+      </article>
+      <Button text="All MBTI" styleType="blue"/>
     </section>
   </main>
 </template>
@@ -80,6 +83,7 @@ export default {
     try {
       const { data } = await axios.get(`http://localhost:8080/result/${this.$route.params.mbti}`);
       this.results = { ...data };
+      // console.log(this.results);
       this.result  = this.results.result[0];
       // console.log(this.result.type);
     } catch (error) {
@@ -317,6 +321,15 @@ export default {
 .resultBtnSection {
   padding: 3% 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4vh;
+  width: 50%;
+}
+.resultBtnSection > article {
+  display: flex;
+  flex-direction: row;
   column-gap: 4vw;
+  width: 100%;
 }
 </style>

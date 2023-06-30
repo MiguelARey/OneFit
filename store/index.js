@@ -7,7 +7,7 @@ export const state = {
       q: "What is your favorite character type in One Piece?",
       a: [
         {
-          text: "People whow have a free spirit and enjoy adventure",
+          text: "People who have a free spirit and enjoy adventure",
           value: "e",
         },
         {
@@ -149,14 +149,14 @@ export const state = {
       ],
     },
     {
-      q: "What adventure style do you prefer in the world of One Piece?",
+      q: "How do you approach planning for adventures in the world of One Piece?",
       a: [
         {
-          text: "Planning and preparing adventures methodically",
+          text: "I prefer going with the flow and embracing the spontaneity of the journey",
           value: "j",
         },
         {
-          text: "Adapting flexibly to situations and pursuing new experiences",
+          text: "I enjoy meticulously researching and strategizing for every aspect of the adventure",
           value: "p",
         },
       ],
