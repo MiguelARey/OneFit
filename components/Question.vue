@@ -74,7 +74,7 @@ export default {
       if (this.page === this.$store.state.questions.length + 1) {
         const result = this.$store.state.result;
         this.$router.push({
-          name: "esult-mbtri",
+          name: "result-mbti",
           params: {
             mbti: `${Number(result.e) > Number(result.i) ? "e" : "i"}${
               Number(result.s) > Number(result.n) ? "s" : "n"
