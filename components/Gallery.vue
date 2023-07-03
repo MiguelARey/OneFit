@@ -1,12 +1,12 @@
 <template>
     <div class="gallery">
-        <figure v-for="char in characters" :key="char.name" @click="openModal()">
-            <img :src="char.picture" :alt="char.id">
+        <figure v-for="char in characters" :key="char.title1" @click="openModal()">
+            <img :src="char.img1" :alt="char.titl1">
             <figcaption>
-                <h2>{{ char.name }}</h2>
-                <h4>{{ char.type }}</h4>
+                <h2>{{ char.title1 }}</h2>
+                <h4>{{ char.subMbti }}</h4>
             </figcaption>
-            <h3>{{ char.mbti }}</h3>
+            <h3>{{ char.type }}</h3>
         </figure>
         <div class="modal">
             
@@ -58,10 +58,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 20%;
+        text-transform: uppercase;
     }
 
     .gallery figcaption{
         padding-right: 2vh;
         padding-left: 2vh;
+        width: 50%;
     }
 </style>

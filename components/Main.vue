@@ -10,29 +10,27 @@
 </template>
 
 <script>
+
+    import axios from "axios"
+
     export default{
         data(){
             return{
-                charApi: "http://localhost:80/onefit_server/rest/api/V1/char.php",
-                characters: [],
-                counter: 0,
-                pageOne:[],
-                pagesCount: 0
+                characters:[]
             }
         },
-        methods:{
-            async getCharacters(){
-                try{
-                    let response = await fetch(this.charApi);
-                    this.characters = await response.json();
-                }catch(error){
-                    console.log(error)
-                }
+        async created(){
+            try {
+                const { data } = await axios.get(`http://localhost:8080/result/`);
+                this.results = { ...data };
+                this.characters = this.results.result;
+                this.characters = this.characters.slice(0,15);
+                console.log(this.characters);
+            } catch (error) {
+            console.error(error);
             }
-        },
-        created(){
-            this.getCharacters();
         }
+                
     }
 </script>
 
