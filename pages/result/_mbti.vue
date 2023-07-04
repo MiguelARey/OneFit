@@ -98,7 +98,8 @@ export default {
       this.$router.push({ name: "index" });
     },
     allResultPage() {
-      this.$router.push({ name: "gallery" });
+      // this.$router.push({ name: "gallery" });
+      this.$router.push({ path: '/#gallery' });
     },
     // downLoadImg(div) {
     //   div = div[0];
