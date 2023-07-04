@@ -70,6 +70,11 @@
         cursor: pointer;
     }
 
+    .off-btn:hover{
+        background-color: #425962;
+        transition: .8s;
+    }
+
     .active-btn{
         width: 6vw;
         height: 4vh;
