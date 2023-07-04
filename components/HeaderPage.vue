@@ -60,7 +60,7 @@ header {
   z-index: 1;
 }
 
-.op-bg {
+.op-bg{
     background-color: white;
     position: absolute;
     z-index: 2;

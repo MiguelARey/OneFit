@@ -1,5 +1,5 @@
 <template>
-  <a id="buttonStyle" :class="[styleType]" @click.prevent="clickEvent">{{
+  <a href="http://localhost:3000/mbti" id="buttonStyle" :class="[styleType]" @click.prevent="clickEvent">{{
     text
   }}</a>
 </template>
@@ -41,6 +41,7 @@ export default {
   transform-style: preserve-3d;
   user-select: none;
   transition: transform 0.2s ease-out, background 0.2s ease-out;
+  text-align: center;
 }
 
 #buttonStyle::before {
