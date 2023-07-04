@@ -1,12 +1,14 @@
 <template>
     <div>
         <div class="gallery">
-            <figure v-for="char in characters" :key="char.title1" @click="openModal = true" :id="char._id">
-                <img :src="char.img1" :alt="char.title1">
-                <figcaption>
-                    <h2>{{ char.title1 }}</h2>
-                </figcaption>
-                <h3>{{ char.type }}</h3>
+            <figure v-for="char in characters" :key="char.title1" :id="char._id">
+                <a :href="'http://localhost:3000/result/'+char.type">
+                    <img :src="char.img1" :alt="char.title1">
+                    <figcaption>
+                        <h2>{{ char.title1 }}</h2>
+                    </figcaption>
+                    <h3>{{ char.type }}</h3>
+                </a>
             </figure>
         </div>
         <div class="modal" v-if="openModal">
@@ -36,11 +38,16 @@
     .gallery > figure{
         width: 27%;
         background-color: gainsboro;
-        display: flex;
-        align-items: center;
         padding-right: 2vh;
         border-radius: 10px;
         height: 20vh;
+    }
+
+    .gallery a{
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #164B60;
     }
 
     .gallery >figure:hover{
@@ -51,7 +58,7 @@
     }
 
     .gallery img{
-        width: 18vh;
+        width: 20vh;
         height: 100%;
         background-color: lightcoral;
         border-top-left-radius: 10px;
@@ -72,6 +79,7 @@
         align-items: center;
         width: 20%;
         text-transform: uppercase;
+        border-left: 1px solid grey;
     }
 
     .gallery figcaption{

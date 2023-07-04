@@ -1,9 +1,14 @@
 <template>
     <div>
-        <div class="cont">
-            START MBTI
+        <div v-if="page === 0" class="cont">
+            <h1>One piece MBTI</h1>
+            <Button text="Start test" :clickEvent="startEvent" />
         </div>
-        <div class="main-content">
+        <!-- quiz page -->
+        <div v-else-if="page < 5">
+            <Question />
+        </div>
+        <div class="main-content" id="gallery">
             <Gallery v-if="togPage" :characters="this.page1"/>
             <Gallery v-else :characters="this.page2"/>
             <button @click="togglePage(); toggleClass()" :class="this.btnClass"></button>
@@ -25,6 +30,11 @@
                 btnClass: 'off-btn'
             }
         },
+        computed: {
+            page() {
+                return this.$store.state.page;
+            },
+        },
         methods:{
             togglePage(){
                 this.togPage = !this.togPage;
@@ -35,6 +45,9 @@
                 }else{
                     this.btnClass = 'off-btn';
                 }
+            },
+            startEvent() {
+                this.$store.commit("SET_PAGE", 1);
             }
         },
         async created(){
@@ -71,6 +84,13 @@
         align-items: center;
         border-top: 2px solid grey;
         background:linear-gradient(180deg,whitesmoke ,#FFD0D0); 
+        flex-direction: column;
+    }
+
+    .cont > h1{
+        padding-bottom: 4vh;
+        text-transform: uppercase;
+        color: #164B60;
     }
 
     .off-btn{
