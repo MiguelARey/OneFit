@@ -1,10 +1,9 @@
 <template>
     <div class="gallery">
-        <figure v-for="char in characters" :key="char.title1" @click="openModal()" :id="char.id">
+        <figure v-for="char in characters" :key="char.title1" @click="openModal()" :id="char._id">
             <img :src="char.img1" :alt="char.title1">
             <figcaption>
                 <h2>{{ char.title1 }}</h2>
-                <h4>{{ char.subMbti }}</h4>
             </figcaption>
             <h3>{{ char.type }}</h3>
         </figure>
@@ -30,6 +29,7 @@
         align-items: center;
         padding-right: 2vh;
         border-radius: 10px;
+        height: 20vh;
     }
 
     .gallery >figure:hover{
@@ -41,7 +41,7 @@
 
     .gallery img{
         width: 18vh;
-        height: 18vh;
+        height: 100%;
         background-color: lightcoral;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -51,7 +51,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 5vh;
+        gap: 3vh;
+        height: 400px;
     }
 
     .gallery h3{
