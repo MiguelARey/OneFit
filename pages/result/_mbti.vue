@@ -44,7 +44,7 @@
           :clickEvent="() => downLoadImg('.resultSection')"
         />
       </article>
-      <Button text="All MBTI" styleType="blue" />
+      <Button text="All MBTI" styleType="blue" :clickEvent="allResultPage"/>
     </section>
   </main>
 </template>
@@ -81,7 +81,7 @@ export default {
         `http://localhost:8080/result/${this.$route.params.mbti}`
       );
       this.results = { ...data };
-      // console.log(this.results);
+      console.log(this.results);
       this.result = this.results.result[0];
       // console.log(this.result.type);
     } catch (error) {
@@ -96,6 +96,9 @@ export default {
     resetPage() {
       this.$store.dispatch("clickResetButton");
       this.$router.push({ name: "index" });
+    },
+    allResultPage() {
+      this.$router.push({ name: "gallery" });
     },
     // downLoadImg(div) {
     //   div = div[0];
