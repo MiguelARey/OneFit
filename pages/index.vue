@@ -1,17 +1,21 @@
 <template>
   <div>
-    <HeaderPage />
+    <HeaderPage/>
+    <About/>
     <!-- intro page -->
-    <main class="parents-question" v-if="page === 0">
+    <main v-if="page === 0">
       <h1>One piece MBTI</h1>
       <h2>who has a same MBTI in One piece?</h2>
       <Button text="Start test" :clickEvent="startEvent" />
     </main>
     <!-- quiz page -->
-    <main class="parents-question" v-else-if="page < 13">
+    <main v-else-if="page < 5">
       <Question />
     </main>
+    <Main/>
+    <FooterPage/> 
   </div>
+  
 </template>
 
 <script>
@@ -28,10 +32,4 @@ export default {
   },
 };
 </script>
-<style>
-.parents-question {
-  width: 100%;
-  height: 89.75vh;
-  overflow: hidden;
-}
-</style>
+

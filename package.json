@@ -10,11 +10,15 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "axios": "^1.4.0",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "sass": "^1.63.6",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
+  },
+  "overrides": {
+    "webpack-dev-middleware": "5.0.0"
   }
 }
