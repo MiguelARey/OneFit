@@ -11,10 +11,10 @@
 
                     </div>
                     <figure>
-                        <h3>Wink Content</h3>
-                        <IconsWink/>
+                        <h3>Venture Upon</h3>
+                        <IconsRowing/>
                         <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maiores laborum voluptas facere quo debitis dolore, excepturi possimus alias temporibus.
+                            Unleash your inner pirate and explore the depths of your personality as you navigate the captivating world of One Piece.
                         </figcaption>
                     </figure>
                 </article>
@@ -24,10 +24,10 @@
                         
                     </div>
                     <figure>
-                        <h3>Wink Content</h3>
-                        <IconsWink/>
+                        <h3>Unleash your inner pirate</h3>
+                        <IconsAnchor/>
                         <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maiores laborum voluptas facere quo debitis dolore, excepturi possimus alias temporibus.
+                            Embark on a thrilling voyage of self-discovery through our One Piece MBTI test page, where anime and personality intertwine.
                         </figcaption>
                     </figure>
                 </article>
@@ -36,10 +36,10 @@
                         
                     </div>
                     <figure>
-                        <h3>Wink Content</h3>
-                        <IconsWink/>
+                        <h3>Find your piece</h3>
+                        <IconsDna/>
                         <figcaption>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nobis similique fugiat numquam veritatis modi aliquam natus assumenda, corporis inventore.
+                            Ready to uncover your One Piece MBTI results? Dive in and see which character's traits align with your unique personality!
                         </figcaption>
                     </figure>
                 </article>
@@ -129,6 +129,7 @@
         flex-direction: column;
         align-items: center;
         gap: 2vh;
+        height: 25vh;
     }
 
     .about-container figcaption{

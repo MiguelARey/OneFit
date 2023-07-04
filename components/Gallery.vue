@@ -70,7 +70,7 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 3vh;
-        height: 400px;
+        height: 65vh;
     }
 
     .gallery h3{

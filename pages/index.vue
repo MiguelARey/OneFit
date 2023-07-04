@@ -3,9 +3,8 @@
     <HeaderPage />
     <About />
     <!-- intro page -->
-    <main>
+    <main class="cont">
       <h1>One piece MBTI</h1>
-      <h2>who has the same MBTI in One Piece?</h2>
       <Button text="Start test" :clickEvent="startEvent" />
     </main>
     <Main />
@@ -41,5 +40,21 @@ export default {
 .mainQuestion {
   width: 100%;
   height: 100vh;
+}
+
+.cont{
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid grey;
+    background:linear-gradient(180deg,whitesmoke ,#FFD0D0); 
+    flex-direction: column;
+}
+
+.cont > h1{
+    padding-bottom: 4vh;
+    text-transform: uppercase;
+    color: #164B60;
 }
 </style>

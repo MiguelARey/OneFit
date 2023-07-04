@@ -58,24 +58,7 @@
         gap: 5vh;
         align-items: center;
         background:linear-gradient(180deg,#FFD0D0 ,#4FC0D0);
-        min-height: 500px;
-        padding-top: 10vh;
-    }
-
-    .cont{
-        height: 400px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-top: 2px solid grey;
-        background:linear-gradient(180deg,whitesmoke ,#FFD0D0); 
-        flex-direction: column;
-    }
-
-    .cont > h1{
-        padding-bottom: 4vh;
-        text-transform: uppercase;
-        color: #164B60;
+        padding: 5vh 0;
     }
 
     .off-btn{
