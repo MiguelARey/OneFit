@@ -1,22 +1,33 @@
 <template>
-    <div class="gallery">
-        <figure v-for="char in characters" :key="char.title1" @click="openModal()" :id="char._id">
-            <img :src="char.img1" :alt="char.title1">
-            <figcaption>
-                <h2>{{ char.title1 }}</h2>
-            </figcaption>
-            <h3>{{ char.type }}</h3>
-        </figure>
-        <div class="modal">
-            
+    <div>
+        <div class="gallery">
+            <figure v-for="char in characters" :key="char.title1" @click="openModal = true" :id="char._id">
+                <img :src="char.img1" :alt="char.title1">
+                <figcaption>
+                    <h2>{{ char.title1 }}</h2>
+                </figcaption>
+                <h3>{{ char.type }}</h3>
+            </figure>
+        </div>
+        <div class="modal" v-if="openModal">
+            <div class="modal-content">
+                This is a simple modal with no issues whatsover
+                <button class="close-modal" @click="openModal = false">Close Modal</button>
+            </div>
         </div>
     </div>
+        
 </template>
 
 <script>
     export default{
         props:{
             characters:[]
+        },
+        data(){
+            return{
+                openModal:false
+            }
         }
     }
 </script>
@@ -67,5 +78,29 @@
         padding-right: 2vh;
         padding-left: 2vh;
         width: 50%;
+    }
+
+    .modal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        backdrop-filter: blur(7px);
+    }
+
+    .modal-content{
+        width: 700px;
+        height: 400px;
+        border-radius: 10px;
+        background-color: rgb(71, 71, 113);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 </style>
