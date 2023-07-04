@@ -75,6 +75,7 @@
         align-items: center;
         background:linear-gradient(180deg,#FFD0D0 ,#4FC0D0);
         min-height: 500px;
+        padding-top: 15vh;
     }
 
     .cont{
