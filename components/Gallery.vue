@@ -1,7 +1,7 @@
 <template>
     <div class="gallery">
-        <figure v-for="char in characters" :key="char.title1" @click="openModal()">
-            <img :src="char.img1" :alt="char.titl1">
+        <figure v-for="char in characters" :key="char.title1" @click="openModal()" :id="char.id">
+            <img :src="char.img1" :alt="char.title1">
             <figcaption>
                 <h2>{{ char.title1 }}</h2>
                 <h4>{{ char.subMbti }}</h4>
