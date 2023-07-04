@@ -14,17 +14,9 @@
       </article>
       <figure class="resultFigure">
         <article class="resultImgBox">
-          <img
-            class="hoverAction1"
-            :src="result.img1"
-            :alt="result.title1"
-          />
+          <img class="hoverAction1" :src="result.img1" :alt="result.title1" />
           <h2 class="hoverAction1">{{ result.title1 }}</h2>
-          <img
-            class="hoverAction2"
-            :src="result.img2"
-            :alt="result.title2"
-          />
+          <img class="hoverAction2" :src="result.img2" :alt="result.title2" />
           <h2 class="hoverAction2">{{ result.title2 }}</h2>
         </article>
         <p>{{ result.description }}</p>
@@ -49,7 +41,7 @@
         <Button text="Try again" :clickEvent="resetPage" />
         <Button text="Share the link" />
       </article>
-      <Button text="All MBTI" styleType="blue"/>
+      <Button text="All MBTI" styleType="blue" />
     </section>
   </main>
 </template>
@@ -81,10 +73,12 @@ export default {
   },
   async created() {
     try {
-      const { data } = await axios.get(`http://localhost:8080/result/${this.$route.params.mbti}`);
+      const { data } = await axios.get(
+        `http://localhost:8080/result/${this.$route.params.mbti}`
+      );
       this.results = { ...data };
       // console.log(this.results);
-      this.result  = this.results.result[0];
+      this.result = this.results.result[0];
       // console.log(this.result.type);
     } catch (error) {
       console.error(error);
@@ -98,10 +92,9 @@ export default {
     resetPage() {
       this.$store.dispatch("clickResetButton");
       this.$router.push({ name: "index" });
-
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style>
 .loading-spinner {

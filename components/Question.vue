@@ -81,6 +81,32 @@ export default {
             }${Number(result.f) > Number(result.t) ? "f" : "t"}${
               Number(result.p) > Number(result.j) ? "p" : "j"
             }`,
+            percents: {
+              e:
+                (Number(result.e) / (Number(result.e) + Number(result.i))) *
+                100,
+              i:
+                (Number(result.i) / (Number(result.e) + Number(result.i))) *
+                100,
+              s:
+                (Number(result.s) / (Number(result.s) + Number(result.n))) *
+                100,
+              n:
+                (Number(result.n) / (Number(result.s) + Number(result.n))) *
+                100,
+              f:
+                (Number(result.f) / (Number(result.f) + Number(result.t))) *
+                100,
+              t:
+                (Number(result.t) / (Number(result.f) + Number(result.t))) *
+                100,
+              p:
+                (Number(result.p) / (Number(result.p) + Number(result.j))) *
+                100,
+              j:
+                (Number(result.j) / (Number(result.p) + Number(result.j))) *
+                100,
+            },
           },
         });
       }
