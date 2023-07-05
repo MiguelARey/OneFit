@@ -2,12 +2,13 @@
     <div class="home-page">
             <div class="newsletter">
                 <section>
-                    <h1>KEEP UPDATED</h1>
-                    <p>Sign up to our newsletter so you never miss out on the product you are looking for!</p>
+                    <h1>JOIN THE CREW</h1>
+                    <p>Set sail with us and explore the Grand Line of adventure in the world of One Piece!</p>
                 </section>
-                <form method="POST">
-                    <input type="email" placeholder="Your email address" name="email">
-                    <input type="submit" value="Sign Up" name="signNews">
+                <form ref="form" @submit.prevent="sendEmail">
+                    <input type="text" name="name" placeholder="Your Name" v-model="name">
+                    <input type="email" placeholder="Your email address" name="email" v-model="email">
+                    <input type="submit" value="Sign Up">
                 </form>
             </div>
             <div class="container">
@@ -67,6 +68,30 @@
             </footer>
         </div>
 </template>
+
+<script>
+    import emailjs from '@emailjs/browser'
+
+    export default{
+        data(){
+            return{
+                name:'',
+                email:''
+            }
+        },
+        methods:{
+            sendEmail(){
+                emailjs.sendForm('service_71cov0y','template_hnnc6w6',this.$refs.form,'HOPIlZBeW7ASwXYTh')
+                .then((result)=>{
+                    alert("SUCCESS",result.text);
+                },(error)=>{
+                    alert("FAILED", error.text);
+                });
+            }
+            
+        }
+    }
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300&display=swap');
