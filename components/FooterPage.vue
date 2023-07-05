@@ -70,7 +70,7 @@
 </template>
 
 <script>
-    import emailjs from '@emailjs/browser'
+    import emailjs from 'emailjs-com'
 
     export default{
         data(){
@@ -80,13 +80,20 @@
             }
         },
         methods:{
-            sendEmail(){
-                emailjs.sendForm('service_71cov0y','template_hnnc6w6',this.$refs.form,'HOPIlZBeW7ASwXYTh')
-                .then((result)=>{
-                    alert("SUCCESS",result.text);
-                },(error)=>{
-                    alert("FAILED", error.text);
-                });
+            sendEmail(e){
+                try{
+                    emailjs.sendForm('service_71cov0y','template_hnnc6w6',e.target,'HOPIlZBeW7ASwXYTh',{
+                    name:this.name,
+                    email:this.email
+                    })
+                    alert("SUCESS")
+                }catch(error){
+                    console.log(error)
+                }
+                
+                this.name = '',
+                this.email = ''
+                
             }
             
         }
@@ -310,7 +317,16 @@ footer article > p {
 }
 
 .newsletter input[type=email]{
-    width: 50vh;
+    width: 40vh;
+    padding: 1vh 2vh;
+    background-color: rgb(53, 53, 70);
+    border: 2px solid grey;
+    border-radius: 8px;
+    color: whitesmoke;
+}
+
+.newsletter input[type=text]{
+    width: 25vh;
     padding: 1vh 2vh;
     background-color: rgb(53, 53, 70);
     border: 2px solid grey;
