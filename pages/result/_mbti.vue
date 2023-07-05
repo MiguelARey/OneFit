@@ -41,7 +41,6 @@
         <Button text="Try again" :clickEvent="resetPage" />
         <Button text="Share the link" />
       </article>
-      <Button text="All MBTI" styleType="blue" />
     </section>
   </main>
 </template>
