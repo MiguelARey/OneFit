@@ -1,5 +1,6 @@
 <template>
     <div class="home-page">
+        <h2 v-if="emailSent" class="mail-confirmation">Well done! Your email has been sent</h2>
             <div class="newsletter">
                 <section>
                     <h1>JOIN THE CREW</h1>
@@ -76,7 +77,8 @@
         data(){
             return{
                 name:'',
-                email:''
+                email:'',
+                emailSent: false
             }
         },
         methods:{
@@ -86,7 +88,7 @@
                     name:this.name,
                     email:this.email
                     })
-                    alert("SUCESS")
+                    this.emailSent = true;
                 }catch(error){
                     console.log(error)
                 }
@@ -348,5 +350,14 @@ footer article > p {
     border-radius: 10px;
     justify-content: space-between;
     padding: 1vh 0;
+    margin-top: 2vh;
+}
+
+.mail-confirmation{
+    background-color: rgb(13, 227, 13);
+    width: 100%;
+    text-align: center;
+    padding: 1vh 0;
+    color: rgb(72, 64, 64);
 }
 </style>
