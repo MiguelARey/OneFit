@@ -39,14 +39,19 @@
     <section class="resultBtnSection">
       <article>
         <Button text="Try again" :clickEvent="resetPage" />
-        <Button text="Share the link" />
+        <Button
+          text="Save the result"
+          :clickEvent="() => downLoadImg('.resultSection')"
+        />
       </article>
+      <Button text="All MBTI" styleType="blue" :clickEvent="allResultPage"/>
     </section>
   </main>
 </template>
 
 <script>
 import axios from "axios";
+import html2canvas from "html2canvas";
 
 export default {
   data() {
@@ -76,7 +81,6 @@ export default {
         `http://localhost:8080/result/${this.$route.params.mbti}`
       );
       this.results = { ...data };
-      // console.log(this.results);
       this.result = this.results.result[0];
       // console.log(this.result.type);
     } catch (error) {
@@ -91,6 +95,37 @@ export default {
     resetPage() {
       this.$store.dispatch("clickResetButton");
       this.$router.push({ name: "index" });
+    },
+    allResultPage() {
+      // this.$router.push({ name: "gallery" });
+      this.$router.push({ path: '/#gallery' });
+    },
+    // downLoadImg(div) {
+    //   div = div[0];
+    //   html2canvas(div).then(function (canvas) {
+    //     var myImage = canvas.toDataURL();
+    //     downloadURI(myImage, "result.png");
+    //   });
+    // },
+    downLoadImg(divSelector) {
+      const div = document.querySelector(divSelector);
+      if (!div) {
+        console.error("Invalid element");
+        return;
+      }
+      html2canvas(div).then((canvas) => {
+        var myImage = canvas.toDataURL();
+        this.downloadURI(myImage, "result.png");
+      });
+    },
+
+    downloadURI(uri, name) {
+      var link = document.createElement("a");
+      link.download = name;
+      link.href = uri;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     },
   },
 };
