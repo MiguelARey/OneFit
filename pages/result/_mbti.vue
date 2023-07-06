@@ -81,7 +81,6 @@ export default {
         `http://localhost:8080/result/${this.$route.params.mbti}`
       );
       this.results = { ...data };
-      console.log(this.results);
       this.result = this.results.result[0];
       // console.log(this.result.type);
     } catch (error) {

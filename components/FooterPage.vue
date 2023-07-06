@@ -1,13 +1,15 @@
 <template>
     <div class="home-page">
+        <h2 v-if="emailSent" class="mail-confirmation">Well done! Your email has been sent</h2>
             <div class="newsletter">
                 <section>
-                    <h1>KEEP UPDATED</h1>
-                    <p>Sign up to our newsletter so you never miss out on the product you are looking for!</p>
+                    <h1>JOIN THE CREW</h1>
+                    <p>Set sail with us and explore the Grand Line of adventure in the world of One Piece!</p>
                 </section>
-                <form method="POST">
-                    <input type="email" placeholder="Your email address" name="email">
-                    <input type="submit" value="Sign Up" name="signNews">
+                <form ref="form" @submit.prevent="sendEmail">
+                    <input type="text" name="name" placeholder="Your Name" v-model="name">
+                    <input type="email" placeholder="Your email address" name="email" v-model="email">
+                    <input type="submit" value="Sign Up">
                 </form>
             </div>
             <div class="container">
@@ -68,6 +70,38 @@
         </div>
 </template>
 
+<script>
+    import emailjs from 'emailjs-com'
+
+    export default{
+        data(){
+            return{
+                name:'',
+                email:'',
+                emailSent: false
+            }
+        },
+        methods:{
+            sendEmail(e){
+                try{
+                    emailjs.sendForm('service_71cov0y','template_hnnc6w6',e.target,'HOPIlZBeW7ASwXYTh',{
+                    name:this.name,
+                    email:this.email
+                    })
+                    this.emailSent = true;
+                }catch(error){
+                    console.log(error)
+                }
+                
+                this.name = '',
+                this.email = ''
+                
+            }
+            
+        }
+    }
+</script>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300&display=swap');
 
@@ -102,7 +136,7 @@ html{
     flex-direction: column;
     align-items: center;
     background-color: #4FC0D0;
-    padding-top: 4vh;
+    padding-top: 10vh;
 }
 footer{
     padding-top: 5vh;
@@ -285,7 +319,16 @@ footer article > p {
 }
 
 .newsletter input[type=email]{
-    width: 50vh;
+    width: 40vh;
+    padding: 1vh 2vh;
+    background-color: rgb(53, 53, 70);
+    border: 2px solid grey;
+    border-radius: 8px;
+    color: whitesmoke;
+}
+
+.newsletter input[type=text]{
+    width: 25vh;
     padding: 1vh 2vh;
     background-color: rgb(53, 53, 70);
     border: 2px solid grey;
@@ -307,5 +350,14 @@ footer article > p {
     border-radius: 10px;
     justify-content: space-between;
     padding: 1vh 0;
+    margin-top: 2vh;
+}
+
+.mail-confirmation{
+    background-color: rgb(13, 227, 13);
+    width: 100%;
+    text-align: center;
+    padding: 1vh 0;
+    color: rgb(72, 64, 64);
 }
 </style>

@@ -60,13 +60,13 @@ header {
   z-index: 1;
 }
 
-.op-bg {
-  background-color: black;
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
+.op-bg{
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    opacity: .2;
 }
 
 .header-cont {
@@ -76,24 +76,33 @@ header {
   height: 100%;
 }
 
-.header-cont h3 {
-  width: 65%;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #ffd0d0;
-  font-style: italic;
-  text-transform: uppercase;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  font-family: "Druk-Wide", sans-serif;
+.header-cont h3{
+    width: 65%;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(60, 45, 135);
+    font-style: italic;
+    text-transform: uppercase;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-family: "Druk-Wide",sans-serif;
+    -webkit-text-stroke: 1px white;
+    -webkit-background-clip: text;
+    background-clip: text;
+
 }
 
-.header-cont span {
-  font-size: 3.7rem;
-  color: whitesmoke;
-  font-family: "One-Piece", sans-serif;
-  font-style: normal;
+.header-cont span{
+    font-size: 3.7rem;
+    font-family: "One-Piece",sans-serif;
+    font-style: normal;
+    background: linear-gradient(180deg,#bac8dd
+    ,rgb(60, 45, 135));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0;
 }
 
 .nav-link a {
