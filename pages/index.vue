@@ -20,6 +20,41 @@
 
 <script>
 export default {
-  
-}
+  computed: {
+    page() {
+      return this.$store.state.page;
+    },
+  },
+  methods: {
+    startEvent() {
+      this.$store.commit("SET_PAGE", 1);
+    },
+  },
+};
 </script>
+<style scoped>
+.mainView {
+  display: flex;
+  flex-direction: column;
+}
+.mainQuestion {
+  width: 100%;
+  height: 100vh;
+}
+
+.cont{
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid grey;
+    background:linear-gradient(180deg,whitesmoke ,#FFD0D0); 
+    flex-direction: column;
+}
+
+.cont > h1{
+    padding-bottom: 4vh;
+    text-transform: uppercase;
+    color: #164B60;
+}
+</style>
