@@ -15,6 +15,7 @@
     <main class="mainQuestion">
       <Question />
     </main>
+  </div>
 </template>
 
 <script>
